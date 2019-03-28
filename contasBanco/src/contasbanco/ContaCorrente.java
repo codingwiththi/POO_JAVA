@@ -74,7 +74,7 @@ public class ContaCorrente{
     
 //SACA UM VALOR DA CONTA
     public void imprimirSaldo(){
-        System.out.println("PREZADO, "+ nomeCliente);
+        System.out.println("PREZADO SR(a), "+ nomeCliente);
         System.out.println("Seu saldo atual na sua Conta Corrente é: R$"+saldo);
     }
 }
