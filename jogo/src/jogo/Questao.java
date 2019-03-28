@@ -16,18 +16,68 @@ public class Questao
     public Questao() {}
     public void criarPergunta() 
     {
-        int operador1 = ThreadLocalRandom.current().nextInt(0,100);
-        int operador2 = ThreadLocalRandom.current().nextInt(0, 20);
+        int i = 0;
+        int operacao = ThreadLocalRandom.current().nextInt(0,3);
         
-        String resposta = JOptionPane.showInputDialog("Quanto é " + operador1 + " + " + operador2);
-        int respostaEmInteiro = Integer.parseInt(resposta);
-        
-        if(operador1 + operador2 == respostaEmInteiro)
+        while(i < 5)
         {
-            JOptionPane.showMessageDialog(null, "Você acertou!");
-        }else
-        {
-            JOptionPane.showMessageDialog(null, "Você errou!");
+            int operador1 = ThreadLocalRandom.current().nextInt(0,100);
+            int operador2 = ThreadLocalRandom.current().nextInt(0, 20);
+            
+            if(operacao == 0)
+            {
+                String resposta = JOptionPane.showInputDialog("Quanto é " + operador1 + " + " + operador2);
+                int respostaEmInteiro = Integer.parseInt(resposta);
+                
+                if(operador1 + operador2 == respostaEmInteiro)
+                {
+                    JOptionPane.showMessageDialog(null, "Você acertou!");
+                }else
+                {
+                    JOptionPane.showMessageDialog(null, "Você errou!");
+                }
+                
+            }else
+            {
+                if(operacao == 1)
+                {
+                    String resposta = JOptionPane.showInputDialog("Quanto é " + operador1 + " - " + operador2);
+                    int respostaEmInteiro = Integer.parseInt(resposta);
+                
+                    if(operador1 - operador2 == respostaEmInteiro)
+                    {
+                        JOptionPane.showMessageDialog(null, "Você acertou!");
+                    }else
+                    {
+                        JOptionPane.showMessageDialog(null, "Você errou!");
+                    }
+                
+                }else
+                {
+                    if(operacao == 2)
+                    {
+                        operador2 = ThreadLocalRandom.current().nextInt(0, 10);
+                        String resposta = JOptionPane.showInputDialog("Quanto é " + operador1 + " * " + operador2);
+                        int respostaEmInteiro = Integer.parseInt(resposta);
+                
+                        if(operador1 * operador2 == respostaEmInteiro)
+                        {
+                            JOptionPane.showMessageDialog(null, "Você acertou!");
+                        }else
+                        {
+                            JOptionPane.showMessageDialog(null, "Você errou!");
+                        }
+                
+                    }
+                }
+                
+            }
+            operacao = ThreadLocalRandom.current().nextInt(0,3);
+            i++;
+              
+            
         }
+        
+        
     }
 }
