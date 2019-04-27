@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JOptionPane;
 
 public abstract class Questao {
-    int pontos;
+    int pontos = 1;
     int op1;
     int op2;
     int resultado;

@@ -15,13 +15,7 @@ public class QuestaoMultiplicacao extends Questao{
     
     @Override
     public boolean verificarResposta(){
-        if(this.op1 * this.op2 == this.resultado)
-        {
-            return true;
-        }else
-        {
-            return false;
-        }
+        return this.op1 * this.op2 == this.resultado;
     }
     
     public void criarPergunta(){

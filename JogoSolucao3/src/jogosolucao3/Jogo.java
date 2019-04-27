@@ -15,6 +15,8 @@ public class Jogo {
     int i = 0;
     int operacao;
     
+    Pontuacao pontuacao = new Pontuacao();
+    
     public void Jogo(){
         while(i < 5)
         {
@@ -23,7 +25,8 @@ public class Jogo {
             {
                 QuestaoSoma novaQuestao = new QuestaoSoma ();
                 novaQuestao.criarPergunta();
-                novaQuestao.exibirResultado();       
+                novaQuestao.exibirResultado();
+                pontuacao.verificarQuestao(novaQuestao);
             }else
             {
                 if(this.operacao == 1)
@@ -31,15 +34,20 @@ public class Jogo {
                     QuestaoSubtracao novaQuestao = new QuestaoSubtracao ();
                     novaQuestao.criarPergunta();
                     novaQuestao.exibirResultado();
+                    pontuacao.verificarQuestao(novaQuestao);
                 }else
                 {
                     QuestaoMultiplicacao novaQuestao = new QuestaoMultiplicacao ();
                     novaQuestao.criarPergunta();
                     novaQuestao.exibirResultado();
+                    pontuacao.verificarQuestao(novaQuestao);
                 }
             }
             i = i+1;
+            
         }
+        pontuacao.exibirPontuacao();
     }
+    
     
 }
