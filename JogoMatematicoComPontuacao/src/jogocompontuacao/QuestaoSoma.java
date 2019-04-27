@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jogosolucao3;
+package jogocompontuacao;
 
 /**
  *
@@ -11,11 +11,11 @@ package jogosolucao3;
  */
 import javax.swing.JOptionPane;
 
-public class QuestaoSubtracao extends Questao{
+public class QuestaoSoma extends Questao{
     
     @Override
     public boolean verificarResposta(){
-        if(this.op1 - this.op2 == this.resultado)
+        if(this.op1 + this.op2 == this.resultado)
         {
             return true;
         }else
@@ -25,8 +25,9 @@ public class QuestaoSubtracao extends Questao{
     }
     
     public void criarPergunta(){
-        String respostatxt = JOptionPane.showInputDialog("Quanto é " + this.op1 + " - " + this.op2 + " ?");
+        String respostatxt = JOptionPane.showInputDialog("Quanto é " + this.op1 + " + " + this.op2 + " ?");
         this.resultado = Integer.parseInt(respostatxt);
     }
+    
     
 }
