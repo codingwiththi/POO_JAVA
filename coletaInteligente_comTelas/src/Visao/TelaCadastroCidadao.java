@@ -7,6 +7,9 @@ package Visao;
 
 import coletaInteligente.Cidadao;
 import coletaInteligente.PersistenciaArquivo;
+import Validador.ValidadorUsuario;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -149,6 +152,7 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
         // TODO add your handling code here:
         Cidadao cidadao = new Cidadao();
+        ValidadorUsuario vUsu = new ValidadorUsuario();
         String email;
         String senha;
         boolean validouEmail = false;
@@ -157,21 +161,19 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
         email = jTextFieldEmail.getText();
         senha = jPasswordFieldSenha.getText();
         
-        if(!cidadao.verificaEmail(email))
-        {
-            jTextFieldEmail.setText("Email Inválido");
-        }else
-        {
+        try {
+            vUsu.verificaEmail(email);
             cidadao.setEmail(email);
             validouEmail = true;
+            
+        } catch (Exception ex) {
+            Logger.getLogger(TelaCadastroCidadao.class.getName()).log(Level.SEVERE, null, ex);
+            jTextFieldEmail.setText(ex.getMessage());
         }
-        if(!cidadao.verificaSenha(senha))
-        {
-            jPasswordFieldSenha.setText("Senha Inválida");
-        }else
-        {
-            cidadao.setSenha(senha);
-            validouSenha = true;
+        
+        
+        try{
+            
         }
         
         if(validouSenha == true && validouEmail == true)

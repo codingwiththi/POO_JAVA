@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern; 
 
-public class Cidadao implements Validador{
+public class Cidadao{
     int codigo;
     String nome;
     String email;
@@ -50,19 +50,7 @@ public class Cidadao implements Validador{
         return email;
     }
     
-    
-    @Override
-    public boolean verificaEmail(String email){
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$"; 
-        Pattern pat = Pattern.compile(emailRegex);
-        
-        if (email == null)
-            return false;
-        
-        return pat.matcher(email).matches();
-    } 
-    
-    
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -71,24 +59,8 @@ public class Cidadao implements Validador{
         return senha;
     }
     
-    @Override
-    public boolean verificaSenha(String senha){
-        // pelo menos um numero e entre 6 e 14 digitos
-        String PASSWORD_PATTERN = "((?=.*\\d).{6,14})";
-        
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        
-        if (senha == null)
-            return false;
-        
-        Matcher matcher = pattern.matcher(senha);
-        
-        return matcher.matches();
-    } 
-   
     
     public void setSenha(String senha) {
-        /*necessario algo para verificacao e validacao da senha*/
         this.senha = senha;
     }
 
