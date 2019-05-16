@@ -15,6 +15,12 @@ import java.util.regex.Pattern;
 public class ValidadorUsuario implements Validador {
     
     @Override
+    public void verificaNome(String nome) throws Exception{
+        if(nome.equalsIgnoreCase(""))
+            throw new Exception("O Nome é um campo obrigatório");
+    }
+    
+    @Override
     public void verificaEmail(String email) throws Exception{
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$"; 
         Pattern pat = Pattern.compile(emailRegex);
@@ -23,7 +29,7 @@ public class ValidadorUsuario implements Validador {
             throw new Exception("O email não pode ser Vazio");
         if(!pat.matcher(email).matches())
         {
-            throw new Exception("O email não é um endereço de email válido");
+            throw new Exception("O email deve ter um formato do tipo nome@nomeProvedorEmail.com");
         }
        
     }
@@ -35,10 +41,10 @@ public class ValidadorUsuario implements Validador {
         
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         
-        if (senha == null)
+        if (senha.equalsIgnoreCase(""))
             throw new Exception("Senha não pode ser vazia");
         if(!pattern.matcher(senha).matches())
-            throw new Exception("Senha não atende aos Requisitos");
+            throw new Exception("Senha deve ter de 6 a 14 caracteres numéricos");
     }
     
 }

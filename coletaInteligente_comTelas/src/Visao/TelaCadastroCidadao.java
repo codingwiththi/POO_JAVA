@@ -10,6 +10,7 @@ import coletaInteligente.PersistenciaArquivo;
 import Validador.ValidadorUsuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -151,40 +152,29 @@ public class TelaCadastroCidadao extends javax.swing.JFrame {
 
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
         // TODO add your handling code here:
-        Cidadao cidadao = new Cidadao();
-        ValidadorUsuario vUsu = new ValidadorUsuario();
+        Cidadao cidadao;
+        ValidadorUsuario validaUser = new ValidadorUsuario();
         String email;
         String senha;
-        boolean validouEmail = false;
-        boolean validouSenha = false;
+        String nome;
         
+        nome = jTextFieldNome.getText();
         email = jTextFieldEmail.getText();
         senha = jPasswordFieldSenha.getText();
         
         try {
-            vUsu.verificaEmail(email);
-            cidadao.setEmail(email);
-            validouEmail = true;
+            validaUser.verificaNome(nome);
+            validaUser.verificaEmail(email);
+            validaUser.verificaSenha(senha);
+            cidadao = new Cidadao(nome, email, senha);
+            PersistenciaArquivo registro = new PersistenciaArquivo();
+            registro.salvaCidadao(cidadao);
+            this.dispose();
             
         } catch (Exception ex) {
             Logger.getLogger(TelaCadastroCidadao.class.getName()).log(Level.SEVERE, null, ex);
-            jTextFieldEmail.setText(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        
-        
-        try{
-            
-        }
-        
-        if(validouSenha == true && validouEmail == true)
-        {
-            cidadao.setNome(jTextFieldNome.getText());
-            PersistenciaArquivo registro = new PersistenciaArquivo();
-            registro.salvaCidadao(cidadao);
-            //AINDA FALTA
-            this.dispose();
-        }
-        
     }//GEN-LAST:event_jButtonOKActionPerformed
 
     /**

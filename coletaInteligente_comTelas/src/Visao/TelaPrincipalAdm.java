@@ -112,9 +112,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadastroColetor tCadastroColetor = new TelaCadastroColetor();
         tCadastroColetor.show(true);
-        
-        
-        
+                
     }//GEN-LAST:event_jButtonColetorActionPerformed
 
     /**
