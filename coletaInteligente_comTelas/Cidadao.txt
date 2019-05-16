@@ -1,3 +1,0 @@
-35, Thiago, thiago@hotmail.com, 01111995, 0.45640087, 0.1729073
-73, thi, 0000@gmail.com, 01111995, 7.64668E-4, 0.044138372
-54, Thiago, thiago@hotmail.com, 012345, 0.21656793, 0.88120717
