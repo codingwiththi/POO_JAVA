@@ -1,4 +1,4 @@
-
+ 
 package coletaInteligente;
 
 import Validador.ValidadorCidadao;
